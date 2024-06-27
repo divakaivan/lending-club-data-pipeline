@@ -2,21 +2,75 @@ blocks:
 - all_upstream_blocks_executed: true
   color: null
   configuration:
-    file_path: data_loaders/load_kaggle_data_from_api.py
+    file_path: data_loaders/download_kaggle_to_local.py
     file_source:
-      path: data_loaders/load_kaggle_data_from_api.py
-  downstream_blocks: []
+      path: data_loaders/download_kaggle_to_local.py
+  downstream_blocks:
+  - load_local_raw_data
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: load_kaggle_data_from_api
+  name: download_kaggle_to_local
   retry_config: null
   status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
-  uuid: load_kaggle_data_from_api
+  uuid: download_kaggle_to_local
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: data_loaders/load_local_raw_data.py
+    file_source:
+      path: data_loaders/load_local_raw_data.py
+  downstream_blocks:
+  - clean_up_loan_data
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_local_raw_data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - download_kaggle_to_local
+  uuid: load_local_raw_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - loan_export_to_gcs
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: clean_up_loan_data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_local_raw_data
+  uuid: clean_up_loan_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: loan_export_to_gcs
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - clean_up_loan_data
+  uuid: loan_export_to_gcs
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
