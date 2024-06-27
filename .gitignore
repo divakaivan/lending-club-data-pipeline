@@ -1,0 +1,5 @@
+terraform/keys/*
+~/*
+datasets/*
+/mage/datasets/*
+/mage/mage-orchestration/.ssh_tunnel
