@@ -1,4 +1,4 @@
-name: 'dbt'
+name: 'dbt_models'
 version: '1.0.0'
 config-version: 2
 
@@ -32,8 +32,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  dbt:
+  dbt_models:
     # Applies to all files under models/example/
   
-vars:
+# vars:
   # payment_type_values: [1,2,3,4,5,6] example var
