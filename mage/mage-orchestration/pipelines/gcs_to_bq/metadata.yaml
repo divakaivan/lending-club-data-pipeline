@@ -25,6 +25,7 @@ blocks:
   color: null
   configuration:
     data_provider: bigquery
+    data_provider_profile: default
     dbt: {}
     disable_query_preprocessing: false
     export_write_policy: append
@@ -39,7 +40,7 @@ blocks:
   language: sql
   name: create_cluster_partition_data
   retry_config: null
-  status: not_executed
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks: []
