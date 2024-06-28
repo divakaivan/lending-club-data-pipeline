@@ -7,10 +7,13 @@ DOCKER_COMPOSE_FILE=docker-compose.yml
 
 .PHONY: help
 help:  ## Show this help message
-	@echo "Usage: make [target]"
+	@echo "Usage: make [option]"
 	@echo ""
-	@echo "Targets:"
+	@echo "Options:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
+	@echo ""
+	@echo "Make sure to place your kaggle.json and gcp-creds.json files in $(TERRAFORM_DIR)/keys/ so that Terraform and Mage can access them."
+	@echo ""
 
 .PHONY: terraform-init
 terraform-init:  ## Initialize Terraform
