@@ -24,6 +24,10 @@ terraform-plan:  ## Plan Terraform changes
 terraform-apply:  ## Apply Terraform changes
 	cd $(TERRAFORM_DIR) && terraform apply -auto-approve
 
+.PHONY: docker-build
+docker-build:  ## Build Docker Compose
+	docker-compose -f $(DOCKER_COMPOSE_FILE) build
+
 .PHONY: docker-up
 docker-up:  ## Start Docker Compose
 	docker-compose -f $(DOCKER_COMPOSE_FILE) up -d
