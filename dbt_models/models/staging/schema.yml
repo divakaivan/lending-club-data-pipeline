@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: staging
+    database: dataengcamp-427114
+    schema: lending_club_bq
+    tables:
+      - name: lending_club_partitioned_clustered

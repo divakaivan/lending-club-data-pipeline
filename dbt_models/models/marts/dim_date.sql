@@ -1,11 +1,12 @@
 with raw_date_data as (
     select
+        date_id,
         issue_d
-    from {{ source('marts', 'lending_club_partitioned_clustered') }}
+    from {{ ref('stg_lending_data') }}
 )
 
 select
-    {{ dbt_utils.generate_surrogate_key([ 'issue_d' ]) }} as date_id,
+    date_id,
     issue_d,
     extract(year from issue_d) as issue_year,
     extract(quarter from issue_d) as issue_quarter,
