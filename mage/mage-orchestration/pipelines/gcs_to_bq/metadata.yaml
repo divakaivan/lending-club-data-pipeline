@@ -21,6 +21,29 @@ blocks:
   type: data_loader
   upstream_blocks: []
   uuid: create_bq_table_from_gcs
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: bigquery
+    dbt: {}
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file_source:
+      path: transformers/create_cluster_partition_data.sql
+    limit: 1000
+    use_raw_sql: true
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: create_cluster_partition_data
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: transformer
+  upstream_blocks: []
+  uuid: create_cluster_partition_data
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
@@ -43,5 +66,5 @@ spark_config: {}
 tags: []
 type: python
 uuid: gcs_to_bq
-variables_dir: /Users/ivanivanov/.mage_data/mage-orchestration
+variables_dir: /root/.mage_data/mage-orchestration
 widgets: []
