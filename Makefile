@@ -7,6 +7,8 @@ DOCKER_COMPOSE_FILE=docker-compose.yml
 
 .PHONY: help
 help:  ## Show this help message
+	@echo ""
+	@echo "If running for the first time, run in order 1~5"
 	@echo "Usage: make [option]"
 	@echo ""
 	@echo "Options:"
@@ -15,32 +17,26 @@ help:  ## Show this help message
 	@echo "Make sure to place your kaggle.json and gcp-creds.json files in $(TERRAFORM_DIR)/keys/ so that Terraform and Mage can access them."
 	@echo ""
 
-.PHONY: terraform-init
-terraform-init:  ## Initialize Terraform
+.PHONY: gcp-tf-init
+gcp-tf-init:  ## 1. Initialize Terraform
 	cd $(TERRAFORM_DIR) && terraform init
 
-.PHONY: terraform-plan
-terraform-plan:  ## Plan Terraform changes
+.PHONY: gcp-tf-plan
+gcp-tf-plan:  ## 2. Plan Terraform changes
 	cd $(TERRAFORM_DIR) && terraform plan
 
-.PHONY: terraform-apply
-terraform-apply:  ## Apply Terraform changes
+.PHONY: gcp-tf-apply
+gcp-tf-apply:  ## 3. Apply Terraform changes
 	cd $(TERRAFORM_DIR) && terraform apply -auto-approve
 
-.PHONY: setup-gcp
-setup-gcp: terraform-init terraform-plan terraform-apply  ## Setup GCP with Terraform
-
 .PHONY: docker-build
-docker-build:  ## Build Docker Compose
+docker-build:  ## 4. Build Docker Compose
 	docker-compose -f $(DOCKER_COMPOSE_FILE) build
 
 .PHONY: docker-up
-docker-up:  ## Start Docker Compose
+docker-up:  ## 5. Start Docker Compose
 	docker-compose -f $(DOCKER_COMPOSE_FILE) up -d
 
 .PHONY: docker-down
-docker-down:  ## Stop Docker Compose
+docker-down:  ## 6. Stop Docker Compose
 	docker-compose -f $(DOCKER_COMPOSE_FILE) down
-
-.PHONY: run
-run: setup-gcp docker-up  ## Setup GCP and run Docker Compose
