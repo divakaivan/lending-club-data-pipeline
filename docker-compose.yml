@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  mage:
+    build: .
+    env_file:
+     - .env
+    volumes:
+      - ./mage:/app/mage
+    ports:
+      - "6789:6789"
+    command: ['mage', 'start', 'mage-orchestration']
