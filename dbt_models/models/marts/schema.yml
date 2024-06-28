@@ -1,32 +1,6 @@
 version: 2
 
-sources:
-  - name: marts
-    database: dataengcamp-427114
-    schema: lending_club_bq
-    tables:
-      - name: lending_club_partitioned_clustered
-
 models:
-  - name: dim_loan
-    description: "Extra loan information"
-    columns:
-      - name: loan_id
-        data_type: string
-        description: "Loan unique identifier"
-
-      - name: purpose
-        data_type: string
-        description: "A category provided by the borrower for the loan request"
-
-      - name: title
-        data_type: string
-        description: "The loan title provided by the borrower"
-
-      - name: sub_grade
-        data_type: string
-        description: "Lending Club assigned loan subgrade"
-
   - name: dim_date
     description: "Extra loan date information"
     columns:
