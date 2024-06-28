@@ -24,6 +24,9 @@ terraform-plan:  ## Plan Terraform changes
 terraform-apply:  ## Apply Terraform changes
 	cd $(TERRAFORM_DIR) && terraform apply -auto-approve
 
+.PHONY: setup-gcp
+setup-gcp: terraform-init terraform-plan terraform-apply  ## Setup GCP with Terraform
+
 .PHONY: docker-build
 docker-build:  ## Build Docker Compose
 	docker-compose -f $(DOCKER_COMPOSE_FILE) build
@@ -35,9 +38,6 @@ docker-up:  ## Start Docker Compose
 .PHONY: docker-down
 docker-down:  ## Stop Docker Compose
 	docker-compose -f $(DOCKER_COMPOSE_FILE) down
-
-.PHONY: setup-gcp
-setup-gcp: terraform-init terraform-plan terraform-apply  ## Setup GCP with Terraform
 
 .PHONY: run
 run: setup-gcp docker-up  ## Setup GCP and run Docker Compose
