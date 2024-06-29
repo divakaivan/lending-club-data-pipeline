@@ -13,4 +13,4 @@ select
     extract(month from issue_d) as issue_month
 from raw_date_data
 
-{% if var('is_dev_run', default=true) %} limit 100 {% endif %}
+-- {% if var('is_dev_run', default=true) %} limit 100 {% endif %}

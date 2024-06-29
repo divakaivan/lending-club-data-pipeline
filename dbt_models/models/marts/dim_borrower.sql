@@ -14,4 +14,4 @@ select
     *
 from raw_borrower_data
 
-{% if var('is_dev_run', default=true) %} limit 100 {% endif %}
+-- {% if var('is_dev_run', default=true) %} limit 100 {% endif %}
