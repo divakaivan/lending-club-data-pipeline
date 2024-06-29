@@ -1,5 +1,12 @@
 version: 2
 
+sources:
+  - name: marts
+    database: dataengcamp-427114
+    schema: lending_club_bq
+    tables:
+      - name: lending_club_partitioned_clustered
+
 models:
   - name: dim_date
     description: "Extra loan date information"
@@ -68,51 +75,26 @@ models:
       - name: address
         data_type: string
         description: "The state and zip code provided by the borrower in the loan application"
-  
-  - name: fact_loans
-    description: "Table including information from all tables"
+
+  - name: dim_loans
+    description: "Raw lending club data with created IDs"
     columns:
       - name: sub_grade
         data_type: string
         description: "Lending Club assigned loan subgrade"
-        data_tests:
-          - not_null:
-              severity: warn
 
       - name: borrower_id
         data_type: string
         description: "Borrower unique identifier"
-
-      - name: emp_title
-        data_type: string
-        description: "The job title supplied by the Borrower when applying for the loan"
-
-      - name: emp_length
-        data_type: string
-        description: "Employment length in years. Possible values are between 0 and 10 where 0 means less than one year and 10 means ten or more years"
-
-      - name: home_ownership
-        data_type: string
-        description: "The home ownership status provided by the borrower during registration or obtained from the credit report. Our values are: RENT, OWN, MORTGAGE, OTHER"
-
-      - name: annual_inc
-        data_type: float64
-        description: "The self-reported annual income provided by the borrower during registration"
-
-      - name: verification_status
-        data_type: string
-        description: "Indicates if income was verified by LC, not verified, or if the income source was verified"
-
-      - name: address
-        data_type: string
-        description: "The state and zip code provided by the borrower in the loan application"
+        data_tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
 
       - name: loan_amnt
         data_type: float64
         description: "The listed amount of the loan applied for by the borrower. If at some point in time, the credit department reduces the loan amount, then it will be reflected in this value"
-        data_tests:
-          - not_null:
-              severity: warn
 
       - name: int_rate
         data_type: float64
@@ -143,22 +125,6 @@ models:
         data_tests:
           - not_null:
               severity: warn
-
-      - name: issue_d
-        data_type: timestamp
-        description: "The YYYY-MMM in which the loan was funded"
-
-      - name: issue_year
-        data_type: int64
-        description: "The year in which the loan was funded"
-
-      - name: issue_quarter
-        data_type: int64
-        description: "The quarter in which the loan was funded"
-
-      - name: issue_month
-        data_type: int64
-        description: "The month in which the loan was funded"
 
       - name: dti
         data_type: float64
@@ -202,7 +168,7 @@ models:
 
       - name: pub_rec_bankruptcies
         data_type: float64
-        description: "Number of public record bankruptcies"
+        description: Number of public record bankruptcies"
 
       - name: purpose
         data_type: string
@@ -211,3 +177,31 @@ models:
       - name: title
         data_type: string
         description: "The loan title provided by the borrower"
+
+      - name: emp_title
+        data_type: string
+        description: "The job title supplied by the Borrower when applying for the loan"
+
+      - name: emp_length
+        data_type: string
+        description: "Employment length in years. Possible values are between 0 and 10 where 0 means less than one year and 10 means ten or more years"
+
+      - name: home_ownership
+        data_type: string
+        description: "The home ownership status provided by the borrower during registration or obtained from the credit report. Our values are: RENT, OWN, MORTGAGE, OTHER"
+
+      - name: annual_inc
+        data_type: float64
+        description: "The self-reported annual income provided by the borrower during registration"
+
+      - name: verification_status
+        data_type: string
+        description: "Indicates if income was verified by LC, not verified, or if the income source was verified"
+
+      - name: address
+        data_type: string
+        description: "The state and zip code provided by the borrower in the loan application"
+
+      - name: issue_d
+        data_type: timestamp
+        description: "The YYYY-MMM which the loan was funded"
