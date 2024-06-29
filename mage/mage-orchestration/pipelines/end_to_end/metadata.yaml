@@ -1,0 +1,43 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: blue
+  configuration:
+    file_path: custom/end_to_end.py
+    file_source:
+      path: custom/end_to_end.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: end_to_end
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: end_to_end
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-29 11:50:02.344968+00:00'
+data_integration: null
+description: Run end to end
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: end_to_end
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: end_to_end
+variables_dir: /root/.mage_data/mage-orchestration
+widgets: []

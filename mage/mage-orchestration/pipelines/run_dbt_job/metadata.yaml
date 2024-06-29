@@ -1,0 +1,40 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: teal
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: trigger_dbt_PROD_job
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: trigger_dbt_prod_job
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-29 10:48:50.234745+00:00'
+data_integration: null
+description: Trigger dbt PRODUCTION job
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: run_dbt_job
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: run_dbt_job
+variables_dir: /root/.mage_data/mage-orchestration
+widgets: []
