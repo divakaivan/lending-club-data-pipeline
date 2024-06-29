@@ -6,7 +6,7 @@ with
     )
 
 select
-    sub_grade,
+    {{ dbt_utils.generate_surrogate_key(["issue_d"]) }} as date_id,
     {{
         dbt_utils.generate_surrogate_key(
             [
@@ -19,13 +19,16 @@ select
             ]
         )
     }} as borrower_id,
+    issue_d,
     loan_amnt,
     int_rate,
     term,
     installment,
     grade,
+    sub_grade,
+    purpose,
+    title,
     loan_status,
-    {{ dbt_utils.generate_surrogate_key(["issue_d"]) }} as date_id,
     dti,
     earliest_cr_line,
     open_acc,
@@ -37,15 +40,12 @@ select
     application_type,
     mort_acc,
     pub_rec_bankruptcies,
-    purpose,
-    title,
     emp_title,
     emp_length,
     home_ownership,
     annual_inc,
     verification_status,
-    address,
-    issue_d
+    address
 from raw_loan_data
 
 {% if var("is_dev_run", default=true) %} limit 100 {% endif %}
