@@ -35,4 +35,4 @@ select
     issue_d
 from raw_loan_data
 
-{% if var('is_dev_run', default=true) %} limit 100 {% endif %}
+-- {% if var('is_dev_run', default=true) %} limit 100 {% endif %}
