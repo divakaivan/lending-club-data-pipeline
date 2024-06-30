@@ -9,7 +9,8 @@ blocks:
     export_write_policy: append
     limit: 1000
     use_raw_sql: true
-  downstream_blocks: []
+  downstream_blocks:
+  - create_cluster_partition_data
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -43,7 +44,8 @@ blocks:
   status: executed
   timeout: null
   type: transformer
-  upstream_blocks: []
+  upstream_blocks:
+  - create_bq_table_from_gcs
   uuid: create_cluster_partition_data
 cache_block_output_in_memory: false
 callbacks: []
