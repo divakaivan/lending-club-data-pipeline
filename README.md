@@ -4,7 +4,7 @@
 
 ![Visualisation dashboard](/project_info/dashboard.png)
 
-# Project pipeline
+# Project diagram
 
 ![Project diagram](/project_info/project_diagram.png)
 
@@ -25,9 +25,32 @@
 
 # Mage pipeline overview  
 
-The below pipeline brings raw data from kaggle to data ready to be visualised in Looker. 
+The below pipeline takes raw data from kaggle and outputs data ready to be visualised in Looker. 
 
 ![Mage pipeline overview](/project_info/mage_end_to_end_overview.png)
 
 # Reproducability
 
+1. Clone the repository
+```
+https://github.com/divakaivan/lending-club-data-pipeline.git
+```
+
+2. Go to the folder in your terminal, and type `make`
+
+3. Follow the on-screen instructions to set up GCP resources and start Mage (`http://localhost:6789/`)
+```
+If running for the first time, run in order 1~5
+Usage: make [option]
+
+Options:
+  help                 Show this help message
+  gcp-tf-init          1. Initialize GCP resources
+  gcp-tf-plan          2. See GCP resources to be created
+  gcp-tf-apply         3. Create GCP resources
+  docker-build         4. Build Mage environment
+  docker-up            5. Start Mage environment
+  docker-down          6. Stop Mage environment
+
+Make sure to place your kaggle.json and gcp-creds.json files in terraform/keys/ so that Terraform and Mage can access them.
+```
