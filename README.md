@@ -1,9 +1,3 @@
-# Visualisation dashboard
-
-#### Click [here](https://lookerstudio.google.com/reporting/de05bd99-c678-4088-8abd-fa0974c0da0e) for an interactive version in Looker
-
-![Visualisation dashboard](/project_info/dashboard.png)
-
 # Project diagram
 
 ![Project diagram](/project_info/project_diagram.png)
@@ -16,6 +10,12 @@
 - **Terraform** is used to manage and provision the infrastructure needed for your data pipeline on Google Cloud Platform
 - **dbt** is used to transform the data into dimension tables, add data tests, and create [documentation](https://lending-club-project-dbt-docs.netlify.app/)
 - **Looker** is used to create a visualisation [dashboard](https://lookerstudio.google.com/reporting/de05bd99-c678-4088-8abd-fa0974c0da0e)
+
+# Visualisation dashboard
+
+#### Click [here](https://lookerstudio.google.com/reporting/de05bd99-c678-4088-8abd-fa0974c0da0e) for an interactive version in Looker
+
+![Visualisation dashboard](/project_info/dashboard.png)
 
 # Data lineage overview
 
