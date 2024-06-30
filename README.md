@@ -8,7 +8,7 @@
   - create tables in **BigQuery** (used as a data warehouse)
   - run dbt transformation jobs
 - **Terraform** is used to manage and provision the infrastructure needed for the data pipeline on Google Cloud Platform
-- **dbt** is used to transform the data into dimension tables, add data tests, and create [documentation](https://lending-club-project-dbt-docs.netlify.app/)
+- **dbt** is used to transform the data into dimension tables, add data tests, and create [data documentation](https://lending-club-project-dbt-docs.netlify.app/)
 - **Looker** is used to create a visualisation [dashboard](https://lookerstudio.google.com/reporting/de05bd99-c678-4088-8abd-fa0974c0da0e)
 
 # Visualisation dashboard
