@@ -60,3 +60,4 @@ Make sure to place your kaggle.json and gcp-creds.json files in terraform/keys/ 
 - increase data volume: at the moment it is using a dataset with ~400K observations.
 - data modelling: at the moment the final result are only 3 tables related to loans, borrower and date; more complex data models can be created
 - automate documentation hosting: the current one was hosted manually with Netlify file upload
+- creating a more complex Looker dashboard
