@@ -2,7 +2,7 @@
 
 ![Project diagram](/project_info/project_diagram.png)
 
-- Raw **Lending Club** data comes from [Kaggle](https://www.kaggle.com/datasets/gabrielsantello/lending-club-loan-preprocessed-dataset)
+- Raw **Lending Club** data from [Kaggle](https://www.kaggle.com/datasets/gabrielsantello/lending-club-loan-preprocessed-dataset)
 - **Mage** is used to orchestrate an end to end process including:
   - extract data using kaggle's API and load it to the **Google Cloud Storage** (used as a data lake)
   - create tables in **BigQuery** (used as a data warehouse)
