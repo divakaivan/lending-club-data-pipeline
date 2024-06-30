@@ -61,3 +61,11 @@ Make sure to place your kaggle.json and gcp-creds.json files in terraform/keys/ 
 - data modelling: at the moment the final result are only 3 tables related to loans, borrower and date; more complex data models can be created
 - automate documentation hosting: the current one was hosted manually with Netlify file upload
 - creating a more complex Looker dashboard
+
+### Blog posts about this project
+
+I developed the current version (as of 30th of June 2024) project in the span of 4 days and discussed each day in my self-study blog:
+* [Day 178](https://50daysml.blogspot.com/2024/06/day-178-starting-lending-club-data.html): Starting 'Lending club data engineering project'
+* [Day 179](https://50daysml.blogspot.com/2024/06/day-179-using-docker-makefile-and.html): Using Docker, Makefile, and starting Data modelling for my Lending club project
+* [Day 180](https://50daysml.blogspot.com/2024/06/day-180-from-kaggle-to-bigquery.html): From Kaggle to BigQuery dimension tables - an end2end pipeline
+* [Day 181](https://50daysml.blogspot.com/2024/06/day-181-lending-club-data-engineering.html): Lending club data engineering project - Done
