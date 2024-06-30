@@ -36,7 +36,7 @@ The below pipeline takes raw data from kaggle and outputs data ready to be visua
 https://github.com/divakaivan/lending-club-data-pipeline.git
 ```
 
-2. Go to the folder in your terminal, and type `make`
+2. Go to the repository folder in your terminal, and type `make`
 
 3. Follow the on-screen instructions to set up GCP resources and start Mage (`http://localhost:6789/`)
 ```
